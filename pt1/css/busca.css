@@ -1,0 +1,62 @@
+body {
+    margin: 0;
+    padding: 0;
+    margin: 0;
+    padding: 0;
+    font-family: "Bitter", serif;
+    font-optical-sizing: auto;
+    font-weight: <weight>;
+    font-style: normal;
+} 
+  }
+  
+  h1 {
+    font-family: "Sancreek", serif;
+    font-weight: 400;
+    font-style: normal;
+    color: orange;
+  }
+  
+  .content {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+  }
+  
+  h1 {
+    font-size: 35px;
+  }
+  
+  input[type="search"],
+  button {
+    padding: 10px;
+    margin: 10px;
+    border: none;
+  }
+  
+  input[type="search"] {
+    width: 300px;
+  }
+  
+  button {
+    background-color: lightgray;
+    color: black;
+    cursor: pointer;
+  }
+  
+  .background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+  }
+  
+  .footer-link {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+  }
