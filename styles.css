@@ -1,60 +1,60 @@
 /* Estilos aplicados ao documento HTML inteiro */
 html {
-    font-family: 'Alegreya Sans SC', sans-serif;
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    text-align: center; /* Alinhar texto no centro horizontalmente */
-  }
+  font-family: 'Alegreya Sans SC', sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  text-align: center; /* Alinhar texto no centro horizontalmente */
+}
+
+a, h1 {
+  color: white;
+  font-weight: bold;
+}
+
+h2, h3 {
+  color: #c4cad0;
+}
+
+body {
   
-  a, h1 {
-    color: white;
-    font-weight: bold;
-  }
-  
-  h2, h3 {
-    color: #c4cad0;
-  }
-  
-  body {
-    
-   
-  }
-  .ney{
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centralizar verticalmente */
-    justify-content: center; /* Centralizar horizontalmente */
-    min-height: 100vh;
-    background: url(sistema-html-para-o-conceito-de-site.jpg) no-repeat center center fixed;
-    background-size: cover; /* Cobrir completamente o elemento body */
-    background-repeat: no-repeat; /* Não repetir a imagem */
-  
-  
-  }
-  
-  .card {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 20px; /* Bordas arredondadas */
-  
-    box-shadow: 0.2em 0.2em 0.5em #2DC7FF                                                                 ;
-    width: 90%;
-    height: 100%;
-    background-color: rgba(234, 186, 107, 0); /* Cor de fundo completamente transparente */
-    backdrop-filter: blur(10px); /* Adiciona um efeito de desfoque ao fundo do cartão */
-  
-  }
-  
-  h1 {
-    text-align: center;
-    background-color: rgba(234, 186, 107, 0); /* Cor de fundo completamente transparente */
-    padding: 10px; /* Espaçamento interno para dar destaque ao texto */
-    border-radius: 10px; /* Borda arredondada */
-  }
-  .selector-for-some-widget {
-    box-sizing: content-box;
-  }
+ 
+}
+.ney{
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centralizar verticalmente */
+  justify-content: center; /* Centralizar horizontalmente */
+  min-height: 100vh;
+  background: url(https://static.vecteezy.com/ti/vetor-gratis/p1/2184723-tecnologia-com-fundo-azul-escuro-vetor.jpg) no-repeat center center fixed;
+  background-size: cover; /* Cobrir completamente o elemento body */
+  background-repeat: no-repeat; /* Não repetir a imagem */
+
+
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px; /* Bordas arredondadas */
+
+  box-shadow: 0.2em 0.2em 0.5em #2DC7FF                                                                 ;
+  width: 90%;
+  height: 100%;
+  background-color: rgba(234, 186, 107, 0); /* Cor de fundo completamente transparente */
+  backdrop-filter: blur(10px); /* Adiciona um efeito de desfoque ao fundo do cartão */
+
+}
+
+h1 {
+  text-align: center;
+  background-color: rgba(234, 186, 107, 0); /* Cor de fundo completamente transparente */
+  padding: 10px; /* Espaçamento interno para dar destaque ao texto */
+  border-radius: 10px; /* Borda arredondada */
+}
+.selector-for-some-widget {
+  box-sizing: content-box;
+}
