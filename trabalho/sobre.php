@@ -1,30 +1,8 @@
-<main>
 <?php
 // Aqui você incluirá o header.php
-include ('header.php');
+require_once ('header.php');
 ?>
-<?php
-session_start();
 
-function registrarAcesso($pagina)
-{
-    $logFile = "logs/{$pagina}_log.txt";
-    $browser = $_SERVER['HTTP_USER_AGENT'];
-    $dataHora = date("Y-m-d H:i:s");
-
-    $log = fopen($logFile, "a");
-    fwrite($log, "Data/Hora: {$dataHora} | Navegador: {$browser}\n");
-    fclose($log);
-
-    if (!isset($_SESSION[$pagina])) {
-        $_SESSION[$pagina] = 1;
-    } else {
-        $_SESSION[$pagina]++;
-    }
-}
-
-registrarAcesso(basename(__FILE__, '.php'));
-?>
 
 <style>
     h1,
@@ -109,7 +87,7 @@ registrarAcesso(basename(__FILE__, '.php'));
         <div class="row">
             <div class="col-md-4"> 
                 <div class="card mb-3"> <!-- Terceiro card -->
-                    <img src="../trabalho/img/ano.png" class="card-img-top" alt="...">
+                    <img src="ano.png" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">.................</h5>
                         <h6 class="card-subtitle mb-2 text-muted">CFO</h6>
@@ -123,7 +101,7 @@ registrarAcesso(basename(__FILE__, '.php'));
                     <!-- Segundo card -->
                 </div>
                 <div class="card mb-3"> <!-- Terceiro card -->
-                    <img src="../trabalho/img/img.jpeg" class="card-img-top" alt="...">
+                    <img src="img.jpeg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Jessé Vitorino de Oliveira</h5>
                         <h6 class="card-subtitle mb-2 text-muted">CEO</h6>
@@ -136,7 +114,7 @@ registrarAcesso(basename(__FILE__, '.php'));
 
             <div class="col-md-4"> 
                 <div class="card mb-3"> <!-- Terceiro card -->
-                    <img src="../trabalho/img/ano.png" class="card-img-top" alt="...">
+                    <img src="ano.png" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">..................</h5>
                         <h6 class="card-subtitle mb-2 text-muted">COO</h6>

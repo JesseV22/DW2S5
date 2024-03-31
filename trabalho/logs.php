@@ -1,83 +1,76 @@
 <?php
-// Aqui você incluirá o header.php
-include ('header.php');
-?>
-<?php
-session_start();
-
 // Verifica se a palavra-chave foi enviada
 if(isset($_POST['palavra_chave']) && $_POST['palavra_chave'] === "senha_da_nasa") {
-    // Processa a requisição para exibir as estatísticas
+    // Se a palavra-chave está correta, exibe as estatísticas de acesso
 
-    // Função para obter os dados de acesso de uma página
-    function obterDadosAcesso($pagina) {
-        $logFile = "logs/{$pagina}_log.txt";
-        $acessos = isset($_SESSION[$pagina]) ? $_SESSION[$pagina] : 0;
-        $dados = array(
-            'pagina' => $pagina,
-            'acessos' => $acessos,
-            'registros' => array()
-        );
+    // Inclui o header
+    include('header.php');
 
-        // Lê o arquivo de log e obtém os registros de acesso
-        if (file_exists($logFile)) {
-            $lines = file($logFile, FILE_IGNORE_NEW_LINES);
-            foreach ($lines as $line) {
-                $dados['registros'][] = $line;
-            }
-        }
+    // Inclui as funções
+    include('functions.php');
 
-        return $dados;
-    }
+    // Obtém as estatísticas de acesso de cada página
+    $estatisticas_inicio = obterEstatisticasAcesso('index');
+    $estatisticas_sobre = obterEstatisticasAcesso('sobre');
+    $estatisticas_contato = obterEstatisticasAcesso('contato');
 
-    // Obtém os dados de acesso de cada página
-    $dados_index = obterDadosAcesso("index");
-    $dados_sobre = obterDadosAcesso("sobre");
-    $dados_contato = obterDadosAcesso("contato");
-
-    // Função para exibir a lista de registros de acesso
-    function exibirRegistros($dados) {
-        echo "<h3>{$dados['pagina']}</h3>";
-        echo "<p>Acessos: {$dados['acessos']}</p>";
-        echo "<ul>";
-        foreach ($dados['registros'] as $registro) {
-            echo "<li>{$registro}</li>";
-        }
-        echo "</ul>";
-    }
+    // Calcula o total de acessos
+    $total_acessos = $estatisticas_inicio['acessos'] + $estatisticas_sobre['acessos'] + $estatisticas_contato['acessos'];
 ?>
-
 
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <div class="index">
-    <div class="bg-light p-4 mb-4 rounded">
     <title>Estatísticas de Acesso</title>
     <!-- Estilos Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-    <!-- Conteúdo da página -->
+<div class="inicio">
+    <div class="bg-light p-4 mb-4 rounded">
     <div class="container mt-5">
         <h2>Estatísticas de Acesso</h2>
-        <a href="index.php" class="btn btn-primary mt-3">Voltar</a>
-
+        <h3>Quantidade de acessos por página:</h3>
+        <ul>
+            <li>Início: <?php echo $estatisticas_inicio['acessos']; ?> acessos</li>
+            <li>Sobre: <?php echo $estatisticas_sobre['acessos']; ?> acessos</li>
+            <li>Contato: <?php echo $estatisticas_contato['acessos']; ?> acessos</li>
+        </ul>
+        <h3>Total de acessos: <?php echo $total_acessos; ?></h3>
+        <h3>Registros de acesso:</h3>
         <?php
-            // Exibe os dados de acesso de cada página
-            exibirRegistros($dados_index);
-            exibirRegistros($dados_sobre);
-            exibirRegistros($dados_contato);
+        // Exibe os registros de acesso de cada página
+        echo "<h4>Início:</h4>";
+        foreach ($estatisticas_inicio['registros'] as $registro) {
+            echo "<p>{$registro['dataHora']} - Navegador: {$registro['navegador']}</p>";
+        }
+
+        echo "<h4>Sobre:</h4>";
+        foreach ($estatisticas_sobre['registros'] as $registro) {
+            echo "<p>{$registro['dataHora']} - Navegador: {$registro['navegador']}</p>";
+        }
+
+        echo "<h4>Contato:</h4>";
+        foreach ($estatisticas_contato['registros'] as $registro) {
+            echo "<p>{$registro['dataHora']} - Navegador: {$registro['navegador']}</p>";
+        }
         ?>
     </div>
 </body>
 </html>
 
 <?php
+// Inclui o footer
+include('footer.php');
+
 } else {
-    // Se a palavra-chave estiver incorreta, exibe um formulário para inserir a palavra-chave
+    // Se a palavra-chave está incorreta, exibe o formulário de proteção
 ?>
+<?php
+  // Inclui o header
+    include('header.php');
+    ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -85,57 +78,30 @@ if(isset($_POST['palavra_chave']) && $_POST['palavra_chave'] === "senha_da_nasa"
     <title>Proteção de Acesso</title>
     <!-- Estilos Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style> 
-    p{
-        color: black;
-    }
-</style>
-
 </head>
 <body>
-    <!-- Conteúdo da página -->
-    <div class="container mt-5">
-    <div class="index">
+<div class="inicio">
     <div class="bg-light p-4 mb-4 rounded">
+    <div class="container mt-5">
         <h2>Proteção de Acesso</h2>
         <form method="post">
             <div class="form-group">
                 <label for="palavra_chave">Palavra-chave:</label>
                 <input type="password" class="form-control" id="palavra_chave" name="palavra_chave">
             </div>
-            <button type="submit" class="btn btn-primary">Enviar</button>
+            <button type="submit" class="btn btn-primary">Acessar</button>
         </form>
-        <?php
-            // Exibe uma mensagem de erro se a palavra-chave estiver incorreta
-            if(isset($_POST['palavra_chave'])) {
-                echo "<p class='text-danger'>Palavra-chave incorreta. Por favor, tente novamente.</p>";
-            }
-        ?>
-
-
     </div>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-       
-    <?php
-// Aqui você incluirá o footer.php
-include ('footer.php');
-?>
+    </div>
+    </div>
 </body>
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
+
 </html>
+<?php
+// Inclui o footer
+include('footer.php');
+?>
 <?php
 }
 ?>

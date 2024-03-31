@@ -1,3 +1,32 @@
+<?php
+// Função para registrar o acesso à página atual
+function registrarAcesso($pagina) {
+    // Define o nome do arquivo de log
+    $logFile = "logs/{$pagina}_log.txt";
+
+    // Abre o arquivo de log em modo de escrita (append)
+    $handle = fopen($logFile, 'a');
+
+    // Obtém a data e hora atual
+    $dataHora = date('Y-m-d H:i:s');
+
+    // Obtém o navegador utilizado pelo usuário
+    $navegador = $_SERVER['HTTP_USER_AGENT'];
+
+    // Formata a mensagem de registro
+    $registro = "Data/Hora: {$dataHora} - Navegador: {$navegador}\n";
+
+    // Escreve a mensagem de registro no arquivo de log
+    fwrite($handle, $registro);
+
+    // Fecha o arquivo de log
+    fclose($handle);
+}
+
+// Registra o acesso à página atual
+registrarAcesso(basename($_SERVER['PHP_SELF'], '.php'));
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -5,6 +34,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="logo.png" href="caminho/para/seu/icone.png">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">

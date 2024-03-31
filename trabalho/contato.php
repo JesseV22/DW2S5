@@ -1,26 +1,6 @@
 <?php
 // Aqui você incluirá o header.php
-include ('header.php');
-
-session_start();
-
-function registrarAcesso($pagina) {
-    $logFile = "logs/{$pagina}_log.txt";
-    $browser = $_SERVER['HTTP_USER_AGENT'];
-    $dataHora = date("Y-m-d H:i:s");
-
-    $log = fopen($logFile, "a");
-    fwrite($log, "Data/Hora: {$dataHora} | Navegador: {$browser}\n");
-    fclose($log);
-
-    if (!isset($_SESSION[$pagina])) {
-        $_SESSION[$pagina] = 1;
-    } else {
-        $_SESSION[$pagina]++;
-    }
-}
-
-registrarAcesso(basename(__FILE__, '.php'));
+require_once ('header.php');
 ?>
 
 <form action="destino.php" method="post">

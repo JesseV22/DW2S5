@@ -2,28 +2,9 @@
 // Aqui você incluirá o header.php
 include ('header.php');
 ?>
-<?php
-session_start();
 
-function registrarAcesso($pagina)
-{
-    $logFile = "logs/{$pagina}_log.txt";
-    $browser = $_SERVER['HTTP_USER_AGENT'];
-    $dataHora = date("Y-m-d H:i:s");
 
-    $log = fopen($logFile, "a");
-    fwrite($log, "Data/Hora: {$dataHora} | Navegador: {$browser}\n");
-    fclose($log);
 
-    if (!isset($_SESSION[$pagina])) {
-        $_SESSION[$pagina] = 1;
-    } else {
-        $_SESSION[$pagina]++;
-    }
-}
-
-registrarAcesso(basename(__FILE__, '.php'));
-?>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -52,7 +33,7 @@ registrarAcesso(basename(__FILE__, '.php'));
         <h1 class="text-center">Jessé Vitorino Oliveira Capital </h1>
     </div>
 
-    <img class="img-lorem img-thumbnail m-4 rounded float-end" src="../trabalho/img/logo.png" alt="Investiments">
+    <img class="img-lorem img-thumbnail m-4 rounded float-end" src="logo.png" alt="Investiments">
     <br>
     <br>
     <br>
@@ -85,6 +66,7 @@ registrarAcesso(basename(__FILE__, '.php'));
 
 </div>
 </main>
+
 
 <?php
 // Aqui você incluirá o footer.php
