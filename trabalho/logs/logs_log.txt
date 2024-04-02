@@ -13,3 +13,4 @@ Data/Hora: 2024-03-31 18:47:39 - Navegador: Mozilla/5.0 (Windows NT 10.0; Win64;
 Data/Hora: 2024-03-31 18:48:29 - Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
 Data/Hora: 2024-03-31 19:37:39 - Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
 Data/Hora: 2024-03-31 19:37:41 - Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+Data/Hora: 2024-04-02 22:19:15 - Navegador: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
