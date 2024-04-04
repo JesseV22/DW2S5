@@ -1,4 +1,6 @@
 <?php
+// functions.php
+
 // Função para obter estatísticas de acesso
 function obterEstatisticasAcesso($pagina) {
     // Define o nome do arquivo de log
@@ -33,5 +35,26 @@ function obterEstatisticasAcesso($pagina) {
     }
 
     return $estatisticas;
+}
+
+// Função para limpar as estatísticas de acesso
+function limparEstatisticas() {
+    // Caminho para os arquivos de log
+    $logFileInicio = "logs/index_log.txt";
+    $logFileSobre = "logs/sobre_log.txt";
+    $logFileContato = "logs/contato_log.txt";
+
+    // Verifica se os arquivos de log existem e os limpa
+    if (file_exists($logFileInicio)) {
+        file_put_contents($logFileInicio, "");
+    }
+
+    if (file_exists($logFileSobre)) {
+        file_put_contents($logFileSobre, "");
+    }
+
+    if (file_exists($logFileContato)) {
+        file_put_contents($logFileContato, "");
+    }
 }
 ?>
